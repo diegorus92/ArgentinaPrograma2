@@ -1,7 +1,4 @@
-.mi-container{
-    border: 2px solid blue;
-    border-radius: 10px;
-}
+
 
 .banner{
     border: 2px solid red;
@@ -19,7 +16,6 @@
     top: -75px;
     left: 25px;
 }
-
 
 .secciones{
     margin-top: -70px;

@@ -1,0 +1,27 @@
+.col-derecha{
+    text-align: right;
+}
+
+.row{
+    margin-bottom: 10px;
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
+}
+
+h4{
+    float: right;
+    margin-right:26%;
+    margin-top: 30px;
+}
+
+.boton-agregar{
+    margin-top: 20px;
+    float:right;
+}
+
+.col-derecha .fas{
+    margin-top: 30px;
+}
