@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PorfolioService} from '../../servicios/porfolio.service';
 
 @Component({
   selector: 'app-encabezado',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EncabezadoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private datosPortfolio:PorfolioService) { }
 
   ngOnInit(): void {
+
+    this.datosPortfolio.obtenerDatos().subscribe(data => {
+      console.log(data);
+    });
   }
 
 }
