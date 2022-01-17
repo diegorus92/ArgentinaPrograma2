@@ -21,16 +21,21 @@
     <div class="container lg">
         <i class="fas fa-plus boton-agregar"></i>
         <h1>Educación</h1>
-        <div class="row">
-            <div class="col">
-              <img src="../../../assets/utn-nacional.jpg" class="img-sm logo" alt="...">
-              <h4>Nombre del instituto</h4>
-              <p>Nombre de la carrera y tiempo de cursado</p>
+        <ul>
+          <li *ngFor="let educacion of listaEducacion">
+            <div class="row">
+              <div class="col">
+                <img [src]="educacion.imagen" class="img-sm logo" alt="...">
+                <h4>{{educacion.escuela}}</h4>
+                <p><i>{{educacion.carrera}}</i>  [ <time>{{educacion.inicio}}</time> - <time>{{educacion.termino}}</time> ]</p>
+              </div>
+              <div class="col col-derecha">
+                <i class="fas fa-edit edit-boton"></i>
+                <i class="fas fa-trash"></i>
+              </div>
             </div>
-            <div class="col col-derecha">
-              <i class="fas fa-edit edit-boton"></i>
-              <i class="fas fa-trash"></i>
-            </div>
-          </div>
+          </li>
+        </ul>
+        
     </div>
 </div>

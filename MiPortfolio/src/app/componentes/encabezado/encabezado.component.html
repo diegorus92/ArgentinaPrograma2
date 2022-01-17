@@ -6,26 +6,26 @@
 <div class="container-lg mi-container">
     <div class="banner container-fluid"></div>
     
-      <img src="../../../assets/blank-profile-picture.png" class="img-thumbnail" alt="imagen de perfil"> 
+      <img [src]="miPortfolio[0].img_perfil" class="img-thumbnail" alt="imagen de perfil"> 
       <i class="fas fa-2x fa-edit edit-boton"></i>
     
     
     <div class="container secciones">
         <div class="row">
           <div class="col">
-            <h1>Nombre del Usuario</h1>
-            <h2>Ocupación actual</h2>
-            <h3>Ubicación<br>(País)</h3>
+            <h1>{{miPortfolio[0].name}}</h1>
+            <h2>{{miPortfolio[0].ocupacion}}</h2>
+            <h3>{{miPortfolio[0].provincia}}<br>({{miPortfolio[0].pais}})</h3>
             <p><a href="#">Información de contacto</a></p>
           </div>
           <div class="col col-derecha">
                 <p>
-                    <img src="../../../assets/lunchera.png" alt="" class="icono-trabajo">
-                    lugar de trabajo 1
+                    <img [src]="miPortfolio[1].trabajo1.logo" alt="" class="icono-trabajo">
+                    {{miPortfolio[1].trabajo1.nombre}}
                 </p>
                 <p>
-                    <img src="../../../assets/lunchera.png" alt="" class="icono-trabajo">
-                    lugar de trabajo 2
+                    <img [src]="miPortfolio[1].trabajo2.logo" alt="" class="icono-trabajo">
+                    {{miPortfolio[1].trabajo2.nombre}}
                 </p>
           </div>
         </div>
