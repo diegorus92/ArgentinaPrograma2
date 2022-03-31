@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { tap } from 'rxjs/operators';
+import { Usuario } from 'src/app/interfaces/usuario.interface';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
 
 @Component({
@@ -14,9 +16,13 @@ export class ExperienciaYEducacionComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.datosPortfolio.obtenerDatos().subscribe(data => {
+    this.datosPortfolio.obtenerDatos()
+    .pipe(
+      tap(data => {
       this.listaEducacion = data[0].educacion;
     })
+    )
+    .subscribe()
   }
 
 }

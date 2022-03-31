@@ -1,0 +1,6 @@
+.btn-primary{
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    border-radius: 5px;
+}

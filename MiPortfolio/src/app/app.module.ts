@@ -9,6 +9,8 @@ import { ExperienciaYEducacionComponent } from './componentes/experiencia-y-educ
 import { AptitudesComponent } from './componentes/aptitudes/aptitudes.component';
 import { LogrosComponent } from './componentes/logros/logros.component';
 import {HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BotonGuardadoComponent } from './componentes/boton-guardado/boton-guardado.component';
 
 const AppRoutes:Routes = [
   { path: '', component:AppComponent}
@@ -21,12 +23,15 @@ const AppRoutes:Routes = [
     AcercaDeComponent,
     ExperienciaYEducacionComponent,
     AptitudesComponent,
-    LogrosComponent
+    LogrosComponent,
+    BotonGuardadoComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(AppRoutes, {enableTracing: true}),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

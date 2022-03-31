@@ -7,25 +7,22 @@
     <div class="banner container-fluid"></div>
     
       <img [src]="miPortfolio[0].img_perfil" class="img-thumbnail" alt="imagen de perfil"> 
-      <i class="fas fa-2x fa-edit edit-boton"></i>
+      <i class="fas fa-2x fa-edit edit-boton" (click)="onEditar()"></i>
+      
     
     
     <div class="container secciones">
         <div class="row">
           <div class="col">
-            <h1>{{miPortfolio[0].name}}</h1>
-            <h2>{{miPortfolio[0].ocupacion}}</h2>
-            <h3>{{miPortfolio[0].provincia}}<br>({{miPortfolio[0].pais}})</h3>
+            <h1>{{usuarioActual.name}}</h1>
+            <h2>{{usuarioActual.ocupacion}}</h2>
+            <h3>{{usuarioActual.provincia}}<br>({{usuarioActual.pais}})</h3>
             <p><a href="#">Información de contacto</a></p>
           </div>
-          <div class="col col-derecha">
+          <div class="col col-derecha" *ngFor="let trabajo of miPortfolio[0].trabajos">
                 <p>
-                    <img [src]="miPortfolio[1].trabajo1.logo" alt="" class="icono-trabajo">
-                    {{miPortfolio[1].trabajo1.nombre}}
-                </p>
-                <p>
-                    <img [src]="miPortfolio[1].trabajo2.logo" alt="" class="icono-trabajo">
-                    {{miPortfolio[1].trabajo2.nombre}}
+                    <img [src]="trabajo.logo" alt="" class="icono-trabajo">
+                    {{trabajo.nombre}}
                 </p>
           </div>
         </div>
@@ -39,6 +36,24 @@
           </div>
     </div>
       
+    <div class="container-fluid" *ngIf="editar">
+      <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+        <h2><i>Editando...</i></h2>
+        <Label for="name">Nombre: </Label>
+        <input type="text" id="name" placeholder="Su nombre" [(ngModel)]="usuarioActual.name" formControlName="name">
+        <br>
+        <Label for="ocupacion">Ocupación: </Label>
+        <input type="text" id="ocupacion" placeholder="Ocupación" [(ngModel)]="usuarioActual.ocupacion" formControlName="ocupacion">
+        <br>
+        <Label for="provincia">Provincia: </Label>
+        <input type="text" id="provincia" placeholder="Provincia" [(ngModel)]="usuarioActual.provincia" formControlName="provincia">
+        <br>
+        <Label for="pais">Nombre: </Label>
+        <input type="text" id="pais" placeholder="País" [(ngModel)]="usuarioActual.pais" formControlName="pais">
+
+        <app-boton-guardado></app-boton-guardado>
+      </form>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
