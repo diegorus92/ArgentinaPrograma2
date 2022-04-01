@@ -40,12 +40,18 @@
         {
           "id": 1,
           "nombre": "Conicet",
-          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Conicet_Logo_con_letras.png/640px-Conicet_Logo_con_letras.png"
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Conicet_Logo_con_letras.png/640px-Conicet_Logo_con_letras.png",
+          "horario_entrada": "8:30",
+          "horario_salida": "16:00",
+          "descripcion": "Encargado en mantenimiento de sistemas de Bases de Datos"
         },
         {
           "id": 2,
           "nombre": "UTN Buenos Aires",
-          "logo": "https://www.frba.utn.edu.ar/wp-content/uploads/2016/08/logo-utn.ba-horizontal-e1471367724904.jpg"
+          "logo": "https://www.frba.utn.edu.ar/wp-content/uploads/2016/08/logo-utn.ba-horizontal-e1471367724904.jpg",
+          "horario_entrada": "7:00",
+          "horario_salida": "13:00",
+          "descripcion": "Impartía cátedra de Arquitectura de Sistemas de Información, y Física en el área de I.S.I"
         }
       ]
     },

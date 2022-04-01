@@ -13,6 +13,9 @@ export interface Trabajo{
     id: number;
     nombre: string;
     logo: string;
+    horario_entrada?: string;
+    horario_salida?: string;
+    descripcion?: string;
 }
 
 export interface Usuario{

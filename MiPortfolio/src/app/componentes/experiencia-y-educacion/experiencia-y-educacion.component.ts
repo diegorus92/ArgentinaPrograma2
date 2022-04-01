@@ -10,16 +10,17 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
 })
 export class ExperienciaYEducacionComponent implements OnInit {
 
-  listaEducacion:any;
+  usuarioActual!:Usuario;
+  id:number = 1;
 
   constructor(private datosPortfolio:PorfolioService) { }
 
   ngOnInit(): void {
 
-    this.datosPortfolio.obtenerDatos()
+    this.datosPortfolio.obtenerDatosPorId(this.id)
     .pipe(
       tap(data => {
-      this.listaEducacion = data[0].educacion;
+      this.usuarioActual = data;
     })
     )
     .subscribe()

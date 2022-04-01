@@ -3,26 +3,30 @@
 <div class="container-lg mi-container">
     <div class="container lg">
         <i class="fas fa-plus boton-agregar"></i>
-        <h1>Experiencia</h1>
-        <div class="row">
-            <div class="col">
-              <img src="../../../assets/empresa1.png" class="img-sm logo" alt="...">
-              <h4>Nombre De La Empresa</h4>
-              <h6>horario</h6>
-              <p>Descripcion general del puesto ocupado y períodos</p>
+        <h1>Experiencia/Trabajo(s)</h1>
+        <ul>
+          <li *ngFor="let trabajos of usuarioActual.trabajos">
+            <div class="row">
+                <div class="col">
+                  <img [src]="trabajos.logo" class="img-sm logo">
+                  <h4>{{trabajos.nombre}}</h4>
+                  <h6><b><i>Horario: </i></b>{{trabajos.horario_entrada}}hs - {{trabajos.horario_salida}}hs</h6>
+                  <p>{{trabajos.descripcion}}</p>
+                </div>
+                <div class="col col-derecha">
+                  <i class="fas fa-edit edit-boton"></i>
+                  <i class="fas fa-trash"></i>
+              </div>
             </div>
-            <div class="col col-derecha">
-              <i class="fas fa-edit edit-boton"></i>
-              <i class="fas fa-trash"></i>
-            </div>
-          </div>
+          </li>
+        </ul>
     </div>
 
     <div class="container lg">
         <i class="fas fa-plus boton-agregar"></i>
         <h1>Educación</h1>
         <ul>
-          <li *ngFor="let educacion of listaEducacion">
+          <li *ngFor="let educacion of usuarioActual.educacion">
             <div class="row">
               <div class="col">
                 <img [src]="educacion.imagen" class="img-sm logo" alt="...">

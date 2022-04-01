@@ -19,12 +19,6 @@
             <h3>{{usuarioActual.provincia}}<br>({{usuarioActual.pais}})</h3>
             <p><a href="#">Información de contacto</a></p>
           </div>
-          <div class="col col-derecha" *ngFor="let trabajo of miPortfolio[0].trabajos">
-                <p>
-                    <img [src]="trabajo.logo" alt="" class="icono-trabajo">
-                    {{trabajo.nombre}}
-                </p>
-          </div>
         </div>
         
         <div class="row">
