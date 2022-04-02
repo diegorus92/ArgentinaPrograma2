@@ -60,7 +60,7 @@ export class EncabezadoComponent implements OnInit {
     console.log("usuarioActual = ", this.usuarioActual);
 
     if(this.usuarioActual){
-      this.datosPortfolio.actualizarCabecera(this.usuarioActual).subscribe();
+      this.datosPortfolio.actualizarCabecera(this.usuarioActual, this.id).subscribe();
     }
     //this.usuarioForm.reset();
   }

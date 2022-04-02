@@ -5,18 +5,40 @@
         <i class="fas fa-plus boton-agregar"></i>
         <h1>Experiencia/Trabajo(s)</h1>
         <ul>
-          <li *ngFor="let trabajos of usuarioActual.trabajos">
+          <li *ngFor="let trabajo of usuarioActual.trabajos">
             <div class="row">
                 <div class="col">
-                  <img [src]="trabajos.logo" class="img-sm logo">
-                  <h4>{{trabajos.nombre}}</h4>
-                  <h6><b><i>Horario: </i></b>{{trabajos.horario_entrada}}hs - {{trabajos.horario_salida}}hs</h6>
-                  <p>{{trabajos.descripcion}}</p>
+                  <img [src]="trabajo.logo" class="img-sm logo">
+                  <h4>{{trabajo.nombre}}</h4>
+                  <h6><b><i>Horario: </i></b>{{trabajo.horario_entrada}}hs - {{trabajo.horario_salida}}hs</h6>
+                  <p>{{trabajo.descripcion}}</p>
                 </div>
                 <div class="col col-derecha">
-                  <i class="fas fa-edit edit-boton"></i>
+                  <i class="fas fa-edit edit-boton" (click)="onEditarTrabajo(trabajo.id)"></i>
                   <i class="fas fa-trash"></i>
-              </div>
+                </div>
+
+                <div class="container-lg" *ngIf="edicion && trabajo.id === idTrabajoActual">
+                  <form [formGroup]="trabajoForm" (ngSubmit)="onSubmit()">
+                    <h2><i>Editando trabajo...</i></h2>
+                    <Label for="nombre">Nombre de la empresa: </Label>
+                    <input type="text" id="nombre" [placeholder]="trabajo.nombre"  formControlName="nombre">
+                    <br>
+                    <Label for="nombre">Horario de entrada: </Label>
+                    <input type="text" [placeholder]="trabajo.horario_entrada"  formControlName="horario_entrada">
+                    <br>
+                    <Label for="nombre">Horario de salida: </Label>
+                    <input type="text" [placeholder]="trabajo.horario_salida"  formControlName="horario_salida">
+                    <br>
+                    <Label for="nombre">Descripción: </Label>
+                    <textarea cols="60" [placeholder]="trabajo.descripcion"  formControlName="descripcion"></textarea>
+                    <br>
+                    <Label for="logo">Logo de la empresa</Label>
+                    <input type="file" formControlName="logo">
+
+                    <app-boton-guardado></app-boton-guardado>
+                  </form>
+                </div>
             </div>
           </li>
         </ul>

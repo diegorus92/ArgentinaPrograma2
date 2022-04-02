@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import { Usuario } from '../interfaces/usuario.interface';
+import { Trabajo, Usuario } from '../interfaces/usuario.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,13 @@ export class PorfolioService {
     return this.http.get<Usuario>(url);
   }
 
-  actualizarCabecera(infoUsuario:Usuario): Observable<any>{
-    return this.http.patch(this.apiUrl+"/1", infoUsuario, this.httpOptions);
+  actualizarCabecera(infoUsuario:Usuario, id:number): Observable<any>{
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.patch(url, infoUsuario, this.httpOptions);
+  }
+
+  actualizarTrabajo(trabajo: Trabajo, idUsuario:number): Observable<any>{
+    const url = `${this.apiUrl}/${idUsuario}`;
+    return this.http.patch(url, trabajo, this.httpOptions);
   }
 }
