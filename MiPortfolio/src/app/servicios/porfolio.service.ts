@@ -24,13 +24,9 @@ export class PorfolioService {
     return this.http.get<Usuario>(url);
   }
 
-  actualizarCabecera(infoUsuario:Usuario, id:number): Observable<any>{
+  actualizarUsuario(infoUsuario:Usuario, id:number): Observable<any>{
     const url = `${this.apiUrl}/${id}`;
     return this.http.patch(url, infoUsuario, this.httpOptions);
   }
 
-  actualizarTrabajo(trabajo: Trabajo, idUsuario:number): Observable<any>{
-    const url = `${this.apiUrl}/${idUsuario}`;
-    return this.http.patch(url, trabajo, this.httpOptions);
-  }
 }

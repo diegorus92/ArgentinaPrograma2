@@ -22,19 +22,19 @@
                   <form [formGroup]="trabajoForm" (ngSubmit)="onSubmit()">
                     <h2><i>Editando trabajo...</i></h2>
                     <Label for="nombre">Nombre de la empresa: </Label>
-                    <input type="text" id="nombre" [placeholder]="trabajo.nombre"  formControlName="nombre">
+                    <input type="text" id="nombre" [(ngModel)]="trabajo.nombre"  formControlName="nombre">
                     <br>
                     <Label for="nombre">Horario de entrada: </Label>
-                    <input type="text" [placeholder]="trabajo.horario_entrada"  formControlName="horario_entrada">
+                    <input type="text" [(ngModel)]="trabajo.horario_entrada"  formControlName="horario_entrada">
                     <br>
                     <Label for="nombre">Horario de salida: </Label>
-                    <input type="text" [placeholder]="trabajo.horario_salida"  formControlName="horario_salida">
+                    <input type="text" [(ngModel)]="trabajo.horario_salida"  formControlName="horario_salida">
                     <br>
                     <Label for="nombre">Descripción: </Label>
-                    <textarea cols="60" [placeholder]="trabajo.descripcion"  formControlName="descripcion"></textarea>
+                    <textarea cols="60" [(ngModel)]="trabajo.descripcion"  formControlName="descripcion"></textarea>
                     <br>
                     <Label for="logo">Logo de la empresa</Label>
-                    <input type="file" formControlName="logo">
+                    <input type="file" [(ngModel)]="trabajo.logo" formControlName="logo">
 
                     <app-boton-guardado></app-boton-guardado>
                   </form>

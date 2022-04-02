@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { Usuario } from 'src/app/interfaces/usuario.interface';
 import {PorfolioService} from '../../servicios/porfolio.service';
@@ -11,10 +11,10 @@ import {FormBuilder} from '@angular/forms';
 })
 export class EncabezadoComponent implements OnInit {
 
-  miPortfolio!:Usuario[];
+  @Input() miPortfolio!:Usuario[];
   editar: boolean = false;
-  usuarioActual!:Usuario;
-  id:number = 1;
+  @Input() usuarioActual!:Usuario;
+  @Input() id!:number;
 
   usuarioForm = this.formBuilder.group({
     name: '',
@@ -30,21 +30,6 @@ export class EncabezadoComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.datosPortfolio.obtenerDatos()
-    .pipe(
-      tap(data => {
-        console.log("Todos los usuarios: ", data);
-        this.miPortfolio = data;
-      })
-    )
-    .subscribe();
-
-    this.datosPortfolio.obtenerDatosPorId(this.id)
-    .pipe(
-      tap((usuario: Usuario) => console.log(`Usuario obtenido por ID (${this.id}): `,usuario)),
-      tap((usuario: Usuario) => this.usuarioActual = usuario)
-    )
-    .subscribe()
   }
 
 
@@ -60,7 +45,7 @@ export class EncabezadoComponent implements OnInit {
     console.log("usuarioActual = ", this.usuarioActual);
 
     if(this.usuarioActual){
-      this.datosPortfolio.actualizarCabecera(this.usuarioActual, this.id).subscribe();
+      this.datosPortfolio.actualizarUsuario(this.usuarioActual, this.id).subscribe();
     }
     //this.usuarioForm.reset();
   }

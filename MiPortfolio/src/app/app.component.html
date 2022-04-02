@@ -1,5 +1,14 @@
-<app-encabezado></app-encabezado>
+<app-encabezado 
+    [miPortfolio]="listaUsuarios"
+    [usuarioActual]="usuario"
+    [id]="idUsuario"
+    >
+</app-encabezado>
 <app-acerca-de></app-acerca-de>
-<app-experiencia-y-educacion></app-experiencia-y-educacion>
+<app-experiencia-y-educacion
+    [usuarioActual]="usuario"
+    [id]="idUsuario"
+    >
+</app-experiencia-y-educacion>
 <app-aptitudes></app-aptitudes>
 <app-logros></app-logros>

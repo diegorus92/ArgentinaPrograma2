@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { Trabajo, Usuario } from 'src/app/interfaces/usuario.interface';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
@@ -11,8 +11,8 @@ import { FormBuilder } from '@angular/forms';
 })
 export class ExperienciaYEducacionComponent implements OnInit {
 
-  usuarioActual!:Usuario;
-  id:number = 1;
+  @Input() usuarioActual!:Usuario;
+  @Input() id!:number;
   idTrabajoActual!:number;
   edicion: boolean = false;
   trabajoForm = this.formBuilder.group({
@@ -30,13 +30,7 @@ export class ExperienciaYEducacionComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.datosPortfolio.obtenerDatosPorId(this.id)
-    .pipe(
-      tap(data => {
-      this.usuarioActual = data;
-    })
-    )
-    .subscribe()
+    
   }
 
   onEditarTrabajo(idTrabajo:number){
@@ -46,6 +40,11 @@ export class ExperienciaYEducacionComponent implements OnInit {
   }
 
   onSubmit():void{
-    console.log("Edición realizada: ", this.trabajoForm.value);
+    console.log("Guardando edicion de trabajo...");
+    if(this.trabajoForm.value && this.usuarioActual){
+      this.datosPortfolio.actualizarUsuario(this.usuarioActual, this.usuarioActual.id as number).subscribe();
+      console.log("Edición realizada: ", this.trabajoForm.value);
+    }
+    
   }
 }

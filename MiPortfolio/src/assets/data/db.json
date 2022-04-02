@@ -2,8 +2,8 @@
   "usuarios": [
     {
       "img_perfil": "https://www.itcha.edu.sv/publicaciones/ITCHA/IMG/10programadores/linus_torvalds_scw.jpg",
-      "name": "Carlos Ibarretaaaa",
-      "ocupacion": "Ingeniero",
+      "name": "Carlos Ibarreta",
+      "ocupacion": "Programador",
       "provincia": "Córdoba",
       "pais": "Argentina",
       "id": 1,
@@ -49,7 +49,7 @@
           "id": 2,
           "nombre": "UTN Buenos Aires",
           "logo": "https://www.frba.utn.edu.ar/wp-content/uploads/2016/08/logo-utn.ba-horizontal-e1471367724904.jpg",
-          "horario_entrada": "7:00",
+          "horario_entrada": "6:30",
           "horario_salida": "13:00",
           "descripcion": "Impartía cátedra de Arquitectura de Sistemas de Información, y Física en el área de I.S.I"
         }
