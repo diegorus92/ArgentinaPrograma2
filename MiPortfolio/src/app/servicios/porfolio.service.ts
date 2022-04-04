@@ -29,4 +29,8 @@ export class PorfolioService {
     return this.http.patch(url, infoUsuario, this.httpOptions);
   }
 
+  generarId(trabajo:Trabajo[]):number{
+    
+    return trabajo.length;
+  }
 }

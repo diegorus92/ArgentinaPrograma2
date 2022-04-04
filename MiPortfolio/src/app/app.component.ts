@@ -24,15 +24,14 @@ export class AppComponent {
         this.listaUsuarios = data;
       })
     )
-    .subscribe();
+    .subscribe(usuarios => this.listaUsuarios = usuarios);
 
     this.datosPortfolioSvc.obtenerDatosPorId(this.idUsuario)
     .pipe(
       tap((usuario: Usuario) => console.log(`Usuario obtenido por ID (${this.idUsuario}): `,usuario)),
       tap((usuario: Usuario) => this.usuario = usuario)
     )
-    .subscribe()
+    .subscribe();
   }
 
-  
 }

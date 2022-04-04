@@ -2,8 +2,29 @@
 
 <div class="container-lg mi-container">
     <div class="container lg">
-        <i class="fas fa-plus boton-agregar"></i>
+        <i class="fas fa-plus boton-agregar" (click)="onAgregarTrabajo()"></i>
         <h1>Experiencia/Trabajo(s)</h1>
+        <div class="container-lg" *ngIf="btn_agregar">
+          <form [formGroup]="NuevoTrabajoForm" (ngSubmit)="guardarNuevoTrabajo()">
+            <h3><i>Agregando nuevo trabajo...</i></h3>
+            <Label for="nombre">Nombre de la empresa: </Label>
+              <input type="text" id="nombre"   formControlName="nombre">
+              <br>
+              <Label for="nombre">Horario de entrada: </Label>
+              <input type="text"   formControlName="horario_entrada">
+              <br>
+              <Label for="nombre">Horario de salida: </Label>
+              <input type="text"   formControlName="horario_salida">
+              <br>
+              <Label for="nombre">Descripción: </Label>
+              <textarea cols="60"  formControlName="descripcion"></textarea>
+              <br>
+              <Label for="logo">Logo de la empresa</Label>
+              <input type="file"  formControlName="logo">
+
+              <app-boton-guardado></app-boton-guardado>
+          </form>
+        </div>
         <ul>
           <li *ngFor="let trabajo of usuarioActual.trabajos">
             <div class="row">
@@ -43,6 +64,8 @@
           </li>
         </ul>
     </div>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
 
     <div class="container lg">
         <i class="fas fa-plus boton-agregar"></i>

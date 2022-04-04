@@ -11,6 +11,7 @@ import { LogrosComponent } from './componentes/logros/logros.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BotonGuardadoComponent } from './componentes/boton-guardado/boton-guardado.component';
+import { AppRoutingModule } from './app-routing.module';
 
 const AppRoutes:Routes = [
   { path: '', component:AppComponent}
@@ -31,7 +32,8 @@ const AppRoutes:Routes = [
     RouterModule.forRoot(AppRoutes, {enableTracing: true}),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

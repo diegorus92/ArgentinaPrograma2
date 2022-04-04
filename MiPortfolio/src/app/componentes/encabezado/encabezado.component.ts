@@ -29,7 +29,7 @@ export class EncabezadoComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-
+    
   }
 
 
