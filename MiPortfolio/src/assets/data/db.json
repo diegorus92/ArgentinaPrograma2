@@ -52,6 +52,14 @@
           "horario_entrada": "6:30",
           "horario_salida": "13:00",
           "descripcion": "Impartía cátedra de Arquitectura de Sistemas de Información, y Física en el área de I.S.I"
+        },
+        {
+          "nombre": "Turing",
+          "logo": "src/assets/logo_turing.jpg",
+          "horario_entrada": "8:00",
+          "horario_salida": "20:30",
+          "descripcion": "Encargado de Testing de aplicaciones",
+          "id": 3
         }
       ]
     },

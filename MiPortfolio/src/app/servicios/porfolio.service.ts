@@ -29,8 +29,8 @@ export class PorfolioService {
     return this.http.patch(url, infoUsuario, this.httpOptions);
   }
 
-  generarId(trabajo:Trabajo[]):number{
+  generarId(trabajos:Trabajo[]):number{
     
-    return trabajo.length;
+    return trabajos.length > 0 ? Math.max(...trabajos.map(trabajo => trabajo.id))+1 : 1;
   }
 }

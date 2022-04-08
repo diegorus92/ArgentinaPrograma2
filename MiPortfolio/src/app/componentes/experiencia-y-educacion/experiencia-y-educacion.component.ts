@@ -40,7 +40,7 @@ export class ExperienciaYEducacionComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.crearNuevoTrabajo();
+    //this.crearNuevoTrabajo();
   }
 
   onEditarTrabajo(idTrabajo:number){
@@ -65,18 +65,35 @@ export class ExperienciaYEducacionComponent implements OnInit {
 
   guardarNuevoTrabajo():void{
     console.log("Trabajo nuevo guardado!", this.NuevoTrabajoForm.value);
+    this.crearNuevoTrabajo(this.NuevoTrabajoForm.value);
     this.NuevoTrabajoForm.reset();
   }
 
-  crearNuevoTrabajo():void{ //Dentro hay que crear el nuevo trabajo, crear su ID y agregarsela, y finalmente grabarlo en la DB
+  crearNuevoTrabajo(nuevoTrabajo:Trabajo):void{ //Dentro hay que crear el nuevo trabajo, crear su ID y agregarsela, y finalmente grabarlo en la DB
     this.datosPortfolio.obtenerDatosPorId(this.id)
     .pipe(
       tap((usuario) => {
         let trabajosUsuario:Trabajo[] = usuario.trabajos as Trabajo[];
-        console.log("Cant. Trabajos del usuario:=> ", this.datosPortfolio.generarId(trabajosUsuario));
+        console.log("Cant. Trabajos del usuario:=> ", trabajosUsuario.length);
         console.log("Los trabajos: ", trabajosUsuario);
+
+        //creacion y agregado del ID al nuevo trabajo
+        const nuevoTrabajoCompleto:Trabajo = {
+          ...nuevoTrabajo,
+          id: this.datosPortfolio.generarId(trabajosUsuario)
+        };
+        console.log("Trabajo nuevo generado...", nuevoTrabajoCompleto);
+
+        //carga de usuario en la lista y en la Base de Datos
+        usuario.trabajos?.push(nuevoTrabajoCompleto as Trabajo);
+        console.log("Lista de trabajos actualizada: ", usuario);
+        this.datosPortfolio.actualizarUsuario(usuario, this.id).subscribe(
+          _ => console.log("Nuevo trabajo guardado!", usuario)
+        );
       })
-    )
-    .subscribe()
+    ).subscribe()
   }
+
+  //Revisar: No carga imagen de logo de empresa, 
+  //ni actualiza la vista automáticamente luego de cargar nuevo trabajo en la BD
 }
